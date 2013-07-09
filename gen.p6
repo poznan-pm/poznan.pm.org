@@ -19,6 +19,7 @@ my $path = 'www';
 my $index_tmpl = slurp "tmpls/index.mojo";
 my $post_tmpl  = slurp "tmpls/blog/post.mojo";
 
+my $menu = menu(get_items('sites'), 'site');
 
 my @conts;
 for get_items('sites') {
@@ -34,19 +35,18 @@ for get_items('blog') {
 my %posts = get_items('blog')>>.Str>>.substr(10) Z @conts;
 
 gen '/', sub {
-    my $menu = menu(get_items('sites'));
     my $posts = blog(get_items('blog'));
     $posts = Template::Mojo.new($post_tmpl).render($posts);
 
     return Template::Mojo.new($index_tmpl).render($menu, $posts);
 }
 
-gen '/sites', %sites,  sub ($site, $content) {
-    return Template::Mojo.new($index_tmpl).render(menu(get_items('sites')), $content);
+gen '/site', %sites,  sub ($site, $content) {
+    return Template::Mojo.new($index_tmpl).render($menu, $content);
 }
 
 gen '/blog', %posts, sub ($post, $content) {
-    return Template::Mojo.new($index_tmpl).render(menu(get_items('sites')), $content);
+    return Template::Mojo.new($index_tmpl).render($menu, $content);
 }
 
 sub get_items(Str $location) {
@@ -62,11 +62,11 @@ sub split(Str $path is copy) {
     return ($path, $file);
 }
 
-sub menu(@items) {
+sub menu(@items, Str $p) {
     my @ret;
     for @items -> $i {
         my ($l, $t) = split(~$i);
-        @ret.push: Link.new(location => "$l/$t", title => $t);
+        @ret.push: Link.new(location => "$p/$t", title => $t);
     }
 
     return @ret.item;
@@ -81,4 +81,8 @@ sub blog(@items) {
         @ret.push: $post;
     }
     return @ret.item;
+}
+
+sub get_link($title) {
+    return $menu.list.grep({.title == $title})[0].location;
 }
