@@ -16,7 +16,7 @@
                 <a href="/">Strona Główna</a><br>
 % for $menu.list -> $m {
 
-<a href="/<%= $m.location %>"><%= $m.title %></a><br>
+                <a href="/<%= $m.location %>"><%= $m.title %></a><br>
 
 % }
                 </div>

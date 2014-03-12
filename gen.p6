@@ -76,8 +76,10 @@ sub blog(@items) {
     my @ret;
     for @items -> $i {
         my ($l, $t) = split(~$i);
-        my $post = Post.new(location => "$l/$t", title => $t, date => "TODOay");
-        $post.content = slurp $i;
+        my $post = Post.new(location => "$l/$t", title => $t);
+        my ($date, @content) = $i.IO.lines;
+        $post.date = $date;
+        $post.content = @content.join: "\n";
         @ret.push: $post;
     }
     return @ret.item;
