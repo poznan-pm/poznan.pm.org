@@ -1,0 +1,61 @@
+body {
+    
+}
+
+#all {
+    margin: auto;
+    width: 750px;
+    border: 1px solid gray;
+}
+
+#logo {
+    border-bottom: 1px solid gray;
+    height: 100px;
+}
+
+#content {
+    margin-top: 50px;
+    padding: 5px 5px 5px 5px;
+}
+
+#l {
+    float: left;
+    width: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+#r {
+    margin-left: 160px;
+    text-align: justify;
+}
+
+#stopka {
+    font-size: 0.9em;
+    border-top: 1px solid gray;
+    clear: both;
+    text-align: center;
+}
+
+.posttitle {
+    text-align: justify;
+    margin-right: 110px;
+}
+
+.postdate {
+    float: right;
+    text-align: right;
+    width: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.postcontent {
+    clear: both;
+    margin-bottom: 20px;
+}
+
+#post {
+    width: 575px;
+    margin-bottom: 10px;
+}
