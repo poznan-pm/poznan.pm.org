@@ -23,7 +23,7 @@
                 <%= $posts %>
                 </div>
             </div>
-            <div id="stopka">2013 &copy; poznan.pm.org | <a href="https://github.com/sergot/poznan.pm.org">source</a> | genereted using <a href="https://github.com/sergot/BreakDancer">BreakDancer</a></div>
+            <div id="stopka">2013-2014 &copy; poznan.pm.org | <a href="https://github.com/sergot/poznan.pm.org">source</a> | genereted using <a href="https://github.com/sergot/BreakDancer">BreakDancer</a></div>
         </div>
     </body>
 </html>
