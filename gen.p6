@@ -26,13 +26,13 @@ for get_items('sites') {
     @conts.push: slurp ~$_;
 }
 
-my %sites = get_items('sites')>>.Str>>.substr(11) Z @conts;
+my %sites = get_items('sites')>>.basename Z @conts;
 
 @conts = ();
 for get_items('blog') {
     @conts.push: slurp ~$_;
 }
-my %posts = get_items('blog')>>.Str>>.substr(10) Z @conts;
+my %posts = get_items('blog')>>.basename Z @conts;
 
 gen '/', sub {
     my $posts = blog(get_items('blog'));
@@ -64,9 +64,10 @@ sub split(Str $path is copy) {
 
 sub menu(@items, Str $p) {
     my @ret;
+    @ret.push: Link.new(location => '', title => 'Strona główna');
     for @items -> $i {
         my ($l, $t) = split(~$i);
-        @ret.push: Link.new(location => "$p/$t", title => $t);
+        @ret.push: Link.new(location => "$p/$t", title => $t.tclc);
     }
 
     return @ret.item;

@@ -13,7 +13,6 @@
             </div>
             <div id="content">
                 <div id="l">
-                <a href="/">Strona Główna</a><br>
 % for $menu.list -> $m {
 
                 <a href="/<%= $m.location %>"><%= $m.title %></a><br>
