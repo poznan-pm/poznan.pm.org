@@ -4,18 +4,18 @@
     <head>
         <title>Poznań Perl Mongers Group :: poznan.pm.org</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link type="text/css" rel="stylesheet" href="/css/style.css">
+        <link type="text/css" rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <div id="all">
             <div id="logo">
-                <a href="/"><img src="/img/perl_logo.gif"></a> POZNAN.PM.ORG
+                <a href="/"><img src="img/perl_logo.gif"></a> POZNAN.PM.ORG
             </div>
             <div id="content">
                 <div id="l">
 % for $menu.list -> $m {
 
-                <a href="/<%= $m.location %>"><%= $m.title %></a><br>
+                <a href="<%= $m.location %>"><%= $m.title %></a><br>
 
 % }
                 </div>
