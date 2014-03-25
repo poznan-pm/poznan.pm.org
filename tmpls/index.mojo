@@ -2,9 +2,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <title>Poznań Perl Mongers Group :: poznan.pm.org</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="css/style.css">
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
     </head>
     <body>
         <div id="all">
@@ -23,7 +26,7 @@
                 <%= $posts %>
                 </div>
             </div>
-            <div id="stopka">2013-2014 &copy; poznan.pm.org | <a href="https://github.com/sergot/poznan.pm.org">source</a> | genereted using <a href="https://github.com/sergot/BreakDancer">BreakDancer</a></div>
+            <div id="stopka">2013-2014 &copy; poznan.pm.org | <a href="https://github.com/poznan-pm/poznan.pm.org">source</a> | genereted using <a href="https://github.com/sergot/BreakDancer">BreakDancer</a></div>
         </div>
     </body>
 </html>
